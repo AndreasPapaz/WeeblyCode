@@ -1,0 +1,15 @@
+{
+  "name": "weebly",
+  "version": "1.0.0",
+  "description": "coding challenge",
+  "main": "weebly.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AP",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^1.1.7",
+    "fast-csv": "^2.4.0"
+  }
+}

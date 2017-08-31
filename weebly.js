@@ -1,10 +1,10 @@
 var fs = require('fs');
 var csv = require('fast-csv');
 var indexItems = {};
-var subValues = [];
 var targetValue;
 var tallyUp = 0;
 var result = null;
+var priceArr = [];
 
 
 fs.createReadStream('./weeblytest.csv').pipe(csv()).on('data', function(data) {
@@ -19,13 +19,15 @@ fs.createReadStream('./weeblytest.csv').pipe(csv()).on('data', function(data) {
 			delete indexItems[i];
 		}
 	}
+	//need to convert index values to numbers
+	priceArr = Object.values(indexItems);
 
-	console.log(Object.values(indexItems));
+	console.log(priceArr);
 	console.log(targetValue);
-	console.log(subValues);
 
 
 	function findPrice(numbers, target, partial) {
+		console.log('start');
 		let s, n, remaining
 
 		partial = partial || []
@@ -49,6 +51,8 @@ fs.createReadStream('./weeblytest.csv').pipe(csv()).on('data', function(data) {
 		}
 		return result;
 	}
+
+	findPrice(targetValue, priceArr);
 });
 
 
